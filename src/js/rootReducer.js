@@ -3,7 +3,7 @@ import searchReducer from './components/SearchBar/searchReducer'
 
 const rootReducer = combineReducers({
 // add reducers
-    search: searchreducer,
+    search: searchReducer,
 });
 
 export default rootReducer;

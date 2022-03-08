@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const defaultState = {
     
     latitude: '', 
@@ -8,12 +10,12 @@ const defaultState = {
     lowestTemp: 0,
     highestTemp: 0,
     windSpeed: 0, 
-    cityName: '',
-    searchHistory: []
-
+    cityName: 'Enter a city',
+    searchHistory: [],
+    
 };
 
-export default function searchBar (state = defaultState, action) {
+export default function SearchReducer (state = defaultState, action) {
     const { type, payload } = action;
 
     switch (type) {
@@ -22,22 +24,31 @@ export default function searchBar (state = defaultState, action) {
                 ...state,
                 latitude: payload.data.coord.latitude,
                 longitude: payload.data.coord.longitude,
-                temperature: payload.data.main.temperature,
+                temperature: payload.data.main.temperature.toFixed(2),
                 pressure: payload.data.main.pressure,
                 humidity: payload.data.main.humidity,
                 lowestTemp: payload.data.main.lowestTemp,
                 highestTemp: payload.data.main.highestTemp,
-                windSpeed: payload.data.main.windSpeed,
+                windSpeed: payload.data.wind.windSpeed,
                 cityName: payload.data.name,
                 searchHistory: [
                     ...state.searchHistory,
                     {
-                        
+                       searchedCity: payload.data.name,
+                       date: moment().format('l'),
+                       time: moment().format('h:mm:ss a')
                     }
                 ]
-
-
             }
+        }
+        case 'CITY_NAME':{
+            return{
+                ...state,
+                name: payload.name
+            }
+        }
+        default: {
+            return state;
         }
     }
 }

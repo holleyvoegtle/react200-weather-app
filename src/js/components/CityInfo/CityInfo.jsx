@@ -1,5 +1,5 @@
-//import { render } from 'less';
-import { name } from 'file-loader';
+
+//import { name } from 'file-loader';
 import React from 'react';
 
 export default class CityInfo extends React.Component {
@@ -23,7 +23,7 @@ export default class CityInfo extends React.Component {
         
         
         return (
-            <div classname='card border-info mb-3'>
+            <div className='card border-info mb-3'>
                 <div className='card-header text-white bg-info'>City Information</div>
                 <div className='card-body'>
                     <h1 className='display-6 text-center'>{cityName}</h1>

@@ -33,10 +33,32 @@ export default class SearchBar extends React.Component {
     render() {
         const { name } = this.props;
         return (
-            <div id = 'searchbar' >
-            
-        </div>
+            <form>
+            <div className="row">
+                <div className="col">
+                    <button type="button" className="btn btn-primary me-1" onClick={() => this.handleGetWeather("San Diego")}>San Diego</button>
+                    <button type="button" className="btn btn-primary me-1" onClick={() => this.handleGetWeather("Mammoth Lakes")}>Mammoth Lakes</button>
+                    <button type="button" className="btn btn-primary me-1" onClick={() => this.handleGetWeather("Makawao")}>Makawao</button>
+                    <button type="button" className="btn btn-primary me-1" onClick={() => this.handleGetWeather("London")}>London</button>
+                    <button type="button" className="btn btn-primary me-1" onClick={() => this.handleGetWeather("Hagatna")}>Hagatha</button>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Search City"
+                        aria-label="Search"
+                        value = {name}
+                        onChange={this.handleCityName}
+                    />
+                    <button type="button" className="btn btn-outline-secondary" onClick={() => this.handleGetWeather(this.props.name)}>Go!</button>
+
+                </div>
+            </div>
+            </form>
     )
-}
+    }
 }
 

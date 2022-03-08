@@ -11,6 +11,6 @@ export function citySearch(name) {
 export function getWeather(name) {
     return {
         type: 'GET_WEATHER',
-        payload: { name }
+        payload: axios.get(`/search/${ name }`)
     };
 }

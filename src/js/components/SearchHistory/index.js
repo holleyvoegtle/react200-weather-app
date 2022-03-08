@@ -5,7 +5,7 @@ import SearchHistory from './SearchHistory'
 // that's passed to the props of the component.
 function mapStoreToProps(store) {
 	return {
-		history: store.search.history
+		searchHistory: store.search.searchHistory
 	};
 }
 

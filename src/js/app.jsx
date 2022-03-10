@@ -4,6 +4,12 @@ import SearchBar from './components/SearchBar';
 import SearchHistory from './components/SearchHistory/SearchHistory';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        searchedItem: ''
+      }
+  }
   render() {
     return (
       <div className='container'>

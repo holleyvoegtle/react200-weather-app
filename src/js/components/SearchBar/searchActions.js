@@ -1,16 +1,16 @@
 import axios from 'axios';
 // this is for action creators
 
-export function citySearch(name) {
+export function citySearch(searchedItem) {
     return {
         type: 'CITY_NAME',
-        payload: { name }
+        payload: { searchedItem }
     };
 }
 
-export function getWeather(name) {
+export function getWeather(searchedItem) {
     return {
         type: 'GET_WEATHER',
-        payload: axios.get(`/search/${ name }`)
+        payload: axios.get(`/search/${ searchedItem }`),
     };
 }

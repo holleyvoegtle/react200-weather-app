@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 // that's passed to the props of the component.
 function mapStoreToProps(store) {
 	return {
-		name: store.search.name
+		searchedItem: store.search.searchedItem
 	};
 }
 
